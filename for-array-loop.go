@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math"
+	//	"math"
 )
 
 var pow []int
@@ -10,7 +10,8 @@ var pow []int
 func main() {
 	for i := 0; i < 20; i++ {
 		// tmp := math.Pow(2, float64(i)) // 冪乗計算は float64 への変換が必要
-		tmp := math.Exp2(float64(i)) // 2 の冪乗は Exp2, 10 は Exp が使える
+		// tmp := math.Exp2(float64(i)) // 2 の冪乗は Exp2, 10 は Exp が使える
+		tmp := 1 << uint(i) // シフト演算を使うのが一番楽そう
 		pow = append(pow, int(tmp))
 	}
 	for index, value := range pow {
