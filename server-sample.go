@@ -5,11 +5,15 @@ import (
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World")
+func init() {
+	http.HandleFunc("/", index)
+	http.HandleFunc("/nice", nice)
 }
 
-func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":3000", nil)
+func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello, World 2")
+}
+
+func nice(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "very nice")
 }
